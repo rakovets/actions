@@ -1,0 +1,15 @@
+name: 'MkDocs Action'
+description: 'Build site from Markdown with MkDocs'
+author: 'Dmitry Rakovets'
+
+inputs:
+  command:
+    description: 'Command for build'
+    required: true
+    default: 'mkdocs build'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
