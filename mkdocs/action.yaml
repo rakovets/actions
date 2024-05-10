@@ -2,21 +2,8 @@ name: 'MkDocs Action'
 description: 'Build site from Markdown with MkDocs'
 author: 'Dmitry Rakovets'
 
-inputs:
-  command:
-    description: 'Command for build'
-    required: true
-    default: 'mkdocs build'
-  site-dir:
-    description: 'The directory where the output HTML and other files are created'
-    required: false
-    default: 'site'
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.command }}
-  env:
-    INPUT_SITE_DIR: ${{ inputs.site_dir }}
-    SITE_DIR: ${{ inputs.site_dir }}
+    - 'build'
